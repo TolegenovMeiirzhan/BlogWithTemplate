@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load sidebar %}
+{% block title  %}
+    {{ block.super}}:: {{title.title}}
+{% endblock %}
+
+{% block content %}
+<section class="single-blog-area">
+            <div class="container">
+                <div class="row">
+                   <div class="col-md-12">
+                    <div class="border-top">
+                        <div class="col-md-8">
+                        <div class="blog-area">
+                            <div class="blog-area-part">
+                                <h2>{{ post.title|title }}</h2>
+
+                                <div class="single-content">
+                                <div>
+                                    <span style = ' font-size:20px '>Category: <a href="{{ post.category.get_absolute_url }}" style = ' font-size:20px '>{{post.category}}</a></span><br>
+
+                                    {% if post.tags.exists %}
+                                        <span style = ' font-size:20px '>Tags:{% for tag in post.tags.all %} <a href="{{ tag.get_absolute_url }}" style = ' font-size:20px '>{{ tag }}</a> {% endfor %} </span>
+                                    {% endif %}
+
+                                     <br><span style = 'font-size:20px'>Views: {{ post.views }}</span>
+
+                                </div>
+                                    {{ post.content|safe }}
+                                </div>
+                                {% if post.photo %}
+                                <img src="{{ post.photo.url }}" alt="">
+                                 {% else %}
+                                 <img src="https://cdn-images.win.gg/resize/w/620/format/webp/type/progressive/fit/cover/path/wp/uploads/2022/02/baki-hanma.jpg" alt="">
+                                 {% endif %}
+
+
+
+                            <br>
+                            <br>
+
+                            <h4>
+                                <span class="date">{{post.created_at|date:'d.m.Y'}}</span><span class="author">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Posted By: <span class="author-name">{{ post.author|title }}</span></span>
+                            </h4>
+
+                    </div>
+
+                    </div>
+
+                    </div>
+                    <div class="col-md-4">
+
+                    <div class="newsletter">
+                            <h2 class="sidebar-title">Search</h2>
+                            <form action="{% url 'search' %}" method="get">
+                                <input type="text" name="s"  placeholder="Search...">
+                                <input type="submit" value="Search">
+                            </form>
+                        </div>
+
+
+                    {% get_sidebar 2 %}
+
+
+
+
+                </div>
+                </div>
+{% get_tags %}
+            </div>
+            </div>
+
+        </section>
+
+{% endblock %}

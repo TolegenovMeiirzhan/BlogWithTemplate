@@ -1,0 +1,15 @@
+<h2 class="sidebar-title">Popular</h2>
+{% for post in posts %}
+<div class="grid"">
+                            <div class="portfolio-item recent" >
+                                {% if post.photo %}
+                                <img src="{{ post.photo.url }}" width = '100px'>
+                                {% else %}
+                                 <img src="https://cdn-images.win.gg/resize/w/620/format/webp/type/progressive/fit/cover/path/wp/uploads/2022/02/baki-hanma.jpg" alt="">
+                                {% endif %}
+                                <div class="portfolio-text">
+                                    <h5><a href="{{ post.get_absolut_url }}">{{ forloop.counter }}. {{ post.title|title }}</a></h5>
+                                    <p>By {{ post.author|title }} <span>|</span>{{ post.created_at|date:'d.m.Y' }}}</p>
+                                </div>
+                            </div>
+{% endfor %}
