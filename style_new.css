@@ -1,0 +1,44 @@
+.single-blog-area h2.sidebar-title {
+background:white;
+    color: #000;
+    font-family: Geometria;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    padding: 21px 25px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+.newsletter form{
+ margin: 30px 0 0;
+ }
+
+.newsletter form {
+    margin: 30px 0 0;
+    }
+.newsletter input[type="submit"] {
+    width: 40%;
+    background: #40c4ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: Geometria;
+    font-size: 15px;
+    font-weight: 500;
+}
+.single-blog-area .newsletter form {
+    margin: 30px 0 0;
+}
+.single-blog-area .newsletter input[type="email"] {
+    width: 50%;
+    margin-right: 20px;
+}
+.single-blog-area .newsletter input[type="submit"] {
+    width: 40%;
+    background: #40c4ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: Geometria;
+    font-size: 15px;
+    font-weight: 500;
+}
